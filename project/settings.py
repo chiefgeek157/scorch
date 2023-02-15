@@ -10,23 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os.path
+
+from configurations import Configuration, values
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+class BaseConfig(Configuration):
+    DEBUG = False
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-384a8fccin%y@)*i+)ocqqreqn1b_5^j5)om8@+%1$rnx2k%vo'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+class Dev(BaseConfig):
+    DOTENV = os.path.join(BASE_DIR, '.env-dev')
+    SECRET_KEY = values.SecretValue()
+    DEBUG = values.BooleanValue(True)
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -37,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'scorch.apps.ScorchConfig',
+    'main.apps.MainConfig',
+    'entity.apps.EntityConfig',
+    'scorecard.apps.ScorecardConfig',
+    'response.apps.ResponseConfig',
 ]
 
 MIDDLEWARE = [

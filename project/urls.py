@@ -20,7 +20,12 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('scorch/', include('scorch.urls')),
-    path('', RedirectView.as_view(url='scorch/')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+]
+# urlpatterns = [
+    # path('admin/', admin.site.urls),
+    # path('entity/', include('entity.urls')),
+    # path('scorecard/', include('scorecard.urls')),
+    # path('response/', include('response.urls')),
+    # path('', RedirectView.as_view(url='main/')),
+# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
