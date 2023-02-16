@@ -1,5 +1,3 @@
-"""Django models for the scorecard application."""
-
 from django.db import models
 
 from entity.models import EntityType
@@ -170,3 +168,4 @@ class ScoringItemVersion(models.Model):
 
     def __str__(self) -> str:
         return f'{self.score_item.text} {self.get_label()}'
+

@@ -17,3 +17,13 @@ it counts most: at the points of funding and proiritization:
 
 * Measure of risk expressed as a "health score"
 * Estimation of cost, to bring the health score to ideal
+
+# Setup
+
+scorch uses `django-environ` to help simplify configuration. Developers should copy the `scorch/.env.smaple` file to `scorch/.env` and modify.
+Note that the `.env` file should ***not*** be checked into source control because it contains secrets such as
+`SECRET_KEY`.
+
+The `scorch/project/settings.py` file is a typical Django settings file but sets environment-specific values from the `.env` file. `.env.sample` contains
+the set of variables that `settings.py` will use, bu default. Developers are free to modify these files as needed
+to suit a particular installation.

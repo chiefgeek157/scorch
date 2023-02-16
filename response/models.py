@@ -1,5 +1,3 @@
-"""Models for the response application."""
-
 from django.db import models
 
 from entity.models import Entity
@@ -81,3 +79,4 @@ class ScoringItemResponse(models.Model):
 
     def __str__(self) -> str:
         return f'{self.score_item_version.score_item.text}: {self.score_level}'
+

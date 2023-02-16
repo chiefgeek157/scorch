@@ -1,4 +1,3 @@
-"""REgister model classes for the admin."""
 from django.contrib import admin
 
 from response.models import Task

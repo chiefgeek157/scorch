@@ -1,5 +1,3 @@
-"""Models for the entity application."""
-
 from django.db import models
 
 
