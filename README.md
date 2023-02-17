@@ -27,3 +27,13 @@ Note that the `.env` file should ***not*** be checked into source control becaus
 The `scorch/project/settings.py` file is a typical Django settings file but sets environment-specific values from the `.env` file. `.env.sample` contains
 the set of variables that `settings.py` will use, bu default. Developers are free to modify these files as needed
 to suit a particular installation.
+
+## Creating default users
+
+The `account` app provides a custom command to create the default Groups and Users needed. To run:
+
+```
+$ python manage.py create_groups
+```
+
+The command is idempotent so only makes changes that are needed.

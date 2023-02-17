@@ -26,7 +26,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See .env.sample for all expected values
 # Add new values as needed
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    ROOT_LOG_LEVEL=(str, 'WARNING'),
 )
 
 DEBUG = env('DEBUG')
@@ -98,16 +99,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator',
     },
 ]
 
@@ -138,3 +143,24 @@ AUTH_USER_MODEL = 'account.ScorchUser'
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {name} {levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': env('ROOT_LOG_LEVEL'),
+    },
+}
