@@ -1,0 +1,22 @@
+{# The base template defining a consistent layout for all pages #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="keywords" content="scorch, architecture, scorecard"/>
+        <meta name="description" content="scorch application"/>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <title>
+            {% block title %}
+                template _base Default Page Title
+            {% endblock title %}
+        </title>
+    </head>
+    <body>
+        <main>
+            {% block content %}
+                <p>temlpate _base Default template content</p>
+            {% endblock content %}
+        </main>
+    </body>
+</html>
