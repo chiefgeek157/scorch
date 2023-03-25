@@ -1,0 +1,2 @@
+
+Copyright $CURRENT_YEAR The Scorch Authors.
