@@ -1,4 +1,8 @@
-"""Custom command to create the baseline Group and Users."""
+"""
+Copyright 2023 The Scorch Authors.
+
+Custom command to create the baseline Group and Users.
+"""
 
 from getpass import getpass
 

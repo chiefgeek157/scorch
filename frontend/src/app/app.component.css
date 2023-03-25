@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.wrapper > * {
+    flex: 1 100%;
+}
+
+@media all and (min-width: 600px) {
+    aside {
+        flex: 1 auto;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .aside-left {
+        order: 3;
+    }
+
+    main {
+        flex: 3 0px;
+        order: 4;
+    }
+
+    .aside-right {
+        order: 5
+    }
+
+    footer {
+        order: 6;
+    }
+}
